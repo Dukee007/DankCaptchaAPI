@@ -1,0 +1,8 @@
+Flask==2.0.1
+numpy==1.21.4
+requests==2.26.0
+torch==2.0.1
+Pillow==8.4.0
+ultralytics==8.0.138
+scikit-image==0.18.3
+opencv-python==4.6.0.66
