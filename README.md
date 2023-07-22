@@ -2,7 +2,7 @@
 A simple Dank Memer captcha-solving API. Some code credit to **[@BridgeSenseDev](https://github.com/BridgeSenseDev)**.<br>
 For support (NOT STUPID QUESTIONS), join our [Discord Server](https://discord.gg/AwzRJcN6By).<br>
 <br>
-## Usage
+## Installation
 This list assumes you understand how to use your computer's terminal/PowerShell and have Python [installed](https://www.python.org/downloads).<br>
 1. Clone the repo: `git clone https://github.com/VillainsRule/DankCaptchaAPI.git`
 2. Open the directory: `cd DankCaptchaAPI`
@@ -12,5 +12,31 @@ This list assumes you understand how to use your computer's terminal/PowerShell 
   b. win: `py main.py`<br>
   c. linux: `python main.py`<br>
   d. if the specified for your OS doesn't work, try the others :)<br>
+
+## Usage
+```js
+const data = { // fill in with your own URLs
+  captcha: "https://media.discordapp.net/attachments/0/0/captcha.webp",
+  opts: {
+    0: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless",
+    1: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless",
+    2: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless",
+    3: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless",
+    4: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless"
+  }
+};
+
+fetch('/solve', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+}).then((res) => res.json()).then(res => {
+  console.log(res);
+});
+```
+The above script was built for the **browser**.<br>
+It can be easily adapted to work in a NodeJS enviornment.<br>
 <br>
-enjoy :)
+enjoy the solver :)
