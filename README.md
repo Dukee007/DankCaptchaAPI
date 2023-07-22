@@ -14,6 +14,7 @@ This list assumes you understand how to use your computer's terminal/PowerShell 
   d. if the specified for your OS doesn't work, try the others :)<br>
 
 ## Usage
+#### Browser Script
 ```js
 const data = { // fill in with your own URLs
   captcha: "https://media.discordapp.net/attachments/0/0/captcha.webp",
@@ -36,7 +37,26 @@ fetch('/solve', {
   console.log(res);
 });
 ```
-The above script was built for the **browser**.<br>
-It can be easily adapted to work in a NodeJS enviornment.<br>
+#### Node Script
+Make sure to properly install `axios` before usage.
+```js
+const axios = require('axios');
+
+const data = { // fill in with your own URLs
+  captcha: "https://media.discordapp.net/attachments/0/0/captcha.webp",
+  opts: {
+    0: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless",
+    1: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless",
+    2: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless",
+    3: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless",
+    4: "https://cdn.discordapp.com/emojis/0.webp?size=96&quality=lossless"
+  }
+};
+
+axios.post('http://localhost:42003/solve', data).then((res) => {
+  console.log(res.data);
+});
+```
+<br>
 <br>
 enjoy the solver :)
